@@ -1,0 +1,4 @@
+paramiko-expect
+paramiko
+git+https://github.com/cisco-ce/pyxows.git
+python-env

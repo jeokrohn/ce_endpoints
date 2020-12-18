@@ -1,0 +1,4 @@
+# enter your values and rename to '.env'
+export CE_HOST=
+export CE_USER=
+export CE_PASS=
