@@ -28,6 +28,7 @@ async def main():
         # only enable the following line to see all status updates
         # CAUTION: performance impacting. Only use in development
         await subscribe('status')
+        await subscribe('event')
 
         print('Change audio volume to end script.')
         await stop
