@@ -5,7 +5,7 @@ import xows
 
 
 async def main():
-    dotenv.load()
+    dotenv.load_dotenv()
     ce_host = os.getenv('CE_HOST') or 'insert device IP if not set in environment'
     ce_user = os.getenv('CE_USER') or 'insert user if not set in environment'
     ce_pass = os.getenv('CE_PASS') or 'insert password if not set in environment'
@@ -16,7 +16,9 @@ async def main():
         def callback(data, id_):
             print(f'Feedback (Id {id_}): {data}')
             # end the program if we see a volume change
-            status = data['Status']
+            status = data.get('Status')
+            if not status:
+                return
             if status.get('Audio', {}).get('Volume') is not None:
                 stop.set_result(True)
 
